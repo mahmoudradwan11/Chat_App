@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'Layout/Home.dart';
 import 'Modules/Login/login.dart';
 
+// This Code is Write by Eng : Mahmoud Radwan
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
@@ -30,6 +31,7 @@ void main() async {
     appMode: mode,
   ));
 }
+
 
 class MyApp extends StatelessWidget {
   final Widget? startWidget;
