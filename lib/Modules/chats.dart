@@ -132,7 +132,7 @@ class ChatScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(DateFormat('KK:mm').format(DateTime.tryParse(model.dateTime!)!),style: Theme.of(context).textTheme.subtitle1,
+            child: Text(DateFormat('MM-dd KK:mm').format(DateTime.tryParse(model.dateTime!)!),style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
         ],
