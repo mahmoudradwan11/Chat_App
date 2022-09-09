@@ -2,6 +2,7 @@ import 'package:chat_app/Modules/Login/Cubit/states.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 class LoginCubit extends Cubit<LoginState>
 {
   LoginCubit() : super(LoginInitState());
@@ -29,5 +30,16 @@ class LoginCubit extends Cubit<LoginState>
     suffixIcon =
     passwordShow ? Icons.visibility : Icons.visibility_off_outlined;
     emit(ChangePasswordVisState());
+  }
+  Future<UserCredential>signInWithGoogle()async
+  {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication? googleAuthentication = await googleUser?.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuthentication?.accessToken,
+      idToken: googleAuthentication?.idToken,
+    );
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+
   }
 }

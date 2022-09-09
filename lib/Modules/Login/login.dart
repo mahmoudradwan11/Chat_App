@@ -121,7 +121,25 @@ class LoginScreen extends StatelessWidget {
                             navigateTo(context, RegisterScreen());
                           }),
                     ],
-                  )
+                  ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                IconButton(
+                  onPressed: () {
+                    cubit.signInWithGoogle();
+                  },
+                  icon: const Image(
+                    image: AssetImage('assests/images/google.png'),
+                  ),
+                ),
+              ],
+            ),
+          ),
                 ],
               ),
             ),
